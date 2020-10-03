@@ -4,7 +4,8 @@
   "description": "Team Profile Generator",
   "main": "index.js",
   "scripts": {
-    "jest": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index",
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
