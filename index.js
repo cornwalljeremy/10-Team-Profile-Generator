@@ -4,7 +4,7 @@ const inquirer = require("inquirer");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
-const render = require("./src/page-template");
+const generateHTML = require("./src/page-template");
 const employeeArray = [];
 
 // let testEmployee;
@@ -95,6 +95,7 @@ function employeeQuestions() {
       break;
     case "No one else":
       console.log(employeeArray);
+      generateFile();
       return true;
   }
 })
@@ -219,18 +220,9 @@ function internQuestions() {
     
 }
 
-// console.log(employeeArray);
-// let name = new Employee();
-// let id = new Employee(`${id}`);
-// let email = new Employee(`${email}`);
-
-// name.getName()
-// id.getId()
-// email.getEmail();
+function generateFile(){
+  let HTML = generateHTML(employeeArray);
+ fs.writeFileSync('./dist/team.html', HTML);
+}
 managerQuestions(employeeQuestions);
-// employeeQuestions()
-// .then(function (data) {
-//   // console.log(data);
-//   // testEmployee = new Employee(data.name, data.id, data.email);
-//   // console.log(testEmployee);
-// });
+
