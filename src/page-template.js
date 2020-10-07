@@ -2,12 +2,15 @@ function generateEmployee(data) {
     let emoteField = "";
     let borderField = "";
     let varField = "";
+    let gitLink =  `<a href="https://github.com/">`;
+
   if (data.getRole() === "Manager") {
     varField = "Office: " + data.office;
     borderField = 'border-danger';
     emoteField = '🧀'
   } else if (data.getRole() === "Engineer") {
-    varField = "Github: " + data.github;
+    varField = "Github: " + gitLink + data.github;
+   
     borderField = 'border-warning';
     emoteField = '👽'
 
@@ -18,24 +21,26 @@ function generateEmployee(data) {
 
   }
   return `
-  <section class="hero">
-  <div class="row row-cols-1 row-cols-md-3">
-    <div class="col mb-4">
-      <div class="card h-100 ${borderField}">
-        <div class="card-header">
+  
+  <div class="col mb-4">
+    <div class="card h-100 ${borderField}">
+      <div class="card-header">
         ${data.name}
           <p class="title">${emoteField} - ${data.getRole()}</p>
-        </div>
+      </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Id: ${data.getId()}</li>
-            <li class="list-group-item">Email: ${data.getEmail()}</li>
-            <li class="list-group-item">Office: ${varField}</li>
+            <li class="list-group-item">Email:
+              <a href="mailto:${data.getEmail()}" class="card-link">${data.getEmail()}</a> 
+            </li>
+            <li class="list-group-item">${varField}</li>
           </ul>
         </div>
-      </div>
     </div>
-</section>`;
+  </div>
+     
+   `;
 }
 
 function generateHTML(employeeArray) {
@@ -62,7 +67,13 @@ function generateHTML(employeeArray) {
     <div class="card">
       <div class="card-body" id="header">My Team</div>
     </div>
+    <section class="hero">
+  <div class="row row-cols- row-cols-md-3">
+  
      ${cards}
+    
+     </div>
+    </section> 
   
       <script
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
