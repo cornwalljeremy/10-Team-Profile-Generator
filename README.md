@@ -16,7 +16,7 @@
   This app makes cards that display the infomation about a hypothetical team. On the index.js in the main folder you will run npm start. You will then be prompted to enter the Managers information. After thier info has been input you will be prompted to add either an intern or engineer. When you are finished entering the employee info you can choose to exit the inquiries. Then team.html will be generated. There you will see the information displayed in each card. Note the colored borders and special emoticons for each level of employee. 
 
   ### Video Link:
-  undefined
+  [Link](https://drive.google.com/file/d/1VX-LZKFFc7gNn4vpS3_s7AW0LRJXGGuc/view)
 
   ### Installation:
   install NODE and inquirer. 
